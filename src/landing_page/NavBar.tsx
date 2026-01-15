@@ -250,7 +250,7 @@ const NavBar = () => {
           <button className="px-4 py-1.5 cursor-pointer border border-gray-700 text-sm font-medium rounded-md text-gray-300 hover:bg-white hover:text-black hover:border-white transition-all">
             Login
           </button>
-          <button className="px-4 py-1.5 cursor-pointer hover:bg-white text-sm text-black rounded-md bg-[var(--stale-button)] border border-transparent font-medium transition-all transition">
+          <button className="px-4 py-1.5 cursor-pointer hover:bg-white text-sm text-black rounded-md bg-(--stale-button) border border-transparent font-medium transition-all">
             Join Now
           </button>
         </div>
@@ -339,7 +339,7 @@ const NavBar = () => {
                 number: "04",
                 scroll: true,
               },
-            ].map((item, index) => (
+            ].map((item) => (
               <div key={item.label}>
                 <div className="flex items-baseline gap-4 cursor-pointer group">
                   {item.scroll ? (
@@ -375,7 +375,7 @@ const NavBar = () => {
           <button className="menu-button align-center w-full px-4 py-2 cursor-pointer border border-gray-300 text-sm font-medium rounded-md text-gray-700 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all">
             Login
           </button>
-          <button className="menu-button align-center w-full px-4 py-2 cursor-pointer bg-gray-900 text-sm text-white rounded-md hover:bg-[var(--stale-button)] hover:text-black border border-transparent font-medium transition-all">
+          <button className="menu-button align-center w-full px-4 py-2 cursor-pointer bg-gray-900 text-sm text-white rounded-md hover:bg-(--stale-button) hover:text-black border border-transparent font-medium transition-all">
             Join Now
           </button>
         </div>
