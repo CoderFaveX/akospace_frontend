@@ -1,6 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import AuthLayout from "./_auth/AuthLayout";
-import LandingPage from "./LandingPage";
+import LandingPage from "./landing_page/LandingPage";
+import { ScrollTrigger, SplitText } from "gsap/all";
+import gsap from "gsap";
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const App = () => {
   return (

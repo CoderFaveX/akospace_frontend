@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --font-google-sans-flex: "Google Sans Flex", sans-serif;
+  --stale-button: #13ecec;
+}
+
+@utility masked-img {
+  mask-image: url("./assets/mask.png");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 50%;
+}
+@utility abs-center {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+}
+@utility text-gradient {
+  background: linear-gradient(to bottom, #ffffff, #3987f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

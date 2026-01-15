@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Akospace - The Heartbeat of UNILAG</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#13ecec",
+              "primary-dark": "#0ea5a5",
+              "background-light": "#f6f8f8",
+              "background-dark": "#102222",
+              navy: "#111818",
+              "navy-light": "#1e2a2a",
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-navy dark:text-white transition-colors duration-200"
+  >
+    <div class="relative flex flex-col min-h-screen w-full overflow-x-hidden">
+      <!-- Navigation -->
+      <header
+        class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-[#dbe6e6] dark:border-[#2a3838] bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-6 lg:px-10 py-3"
+      >
+        <div class="flex items-center gap-4">
+          <div class="size-8 flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined !text-3xl">hub</span>
+          </div>
+          <h2
+            class="text-navy dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]"
+          >
+            Akospace
+          </h2>
+        </div>
+        <div class="hidden lg:flex items-center gap-9">
+          <a
+            class="text-navy dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+            href="#"
+            >Features</a
+          >
+          <a
+            class="text-navy dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+            href="#"
+            >For Students</a
+          >
+          <a
+            class="text-navy dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+            href="#"
+            >For Business</a
+          >
+          <a
+            class="text-navy dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors"
+            href="#"
+            >Community</a
+          >
+        </div>
+        <div class="flex gap-3">
+          <button
+            class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-transparent border border-[#dbe6e6] dark:border-[#2a3838] hover:bg-gray-100 dark:hover:bg-[#1e2a2a] text-navy dark:text-white text-sm font-bold transition-all"
+          >
+            <span class="truncate">Login</span>
+          </button>
+          <button
+            class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-primary-dark text-navy text-sm font-bold transition-all shadow-[0_0_15px_rgba(19,236,236,0.3)]"
+          >
+            <span class="truncate">Join Now</span>
+          </button>
+        </div>
+      </header>
+      <!-- Hero Section -->
+      <div
+        class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5 lg:py-10"
+      >
+        <div
+          class="layout-content-container flex flex-col max-w-[1200px] flex-1"
+        >
+          <div class="@container">
+            <div
+              class="flex flex-col-reverse lg:flex-row gap-10 lg:gap-16 py-10 items-center"
+            >
+              <!-- Text Content -->
+              <div
+                class="flex flex-col gap-6 flex-1 text-center lg:text-left items-center lg:items-start"
+              >
+                <div
+                  class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary-dark dark:text-primary text-xs font-bold uppercase tracking-wider"
+                >
+                  <span class="material-symbols-outlined text-sm">bolt</span>
+                  <span>Live at UNILAG</span>
+                </div>
+                <h1
+                  class="text-navy dark:text-white text-4xl lg:text-6xl font-black leading-[1.1] tracking-[-0.033em]"
+                >
+                  The Heartbeat of Campus:
+                  <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500"
+                    >Connect, Create, &amp; Scale.</span
+                  >
+                </h1>
+                <h2
+                  class="text-gray-600 dark:text-gray-300 text-lg font-normal leading-relaxed max-w-lg"
+                >
+                  A fullstack platform for students, consultants, and
+                  businesses. Join the vibrant Nigerian community today to
+                  network, share your vibes, and pitch your hustle.
+                </h2>
+                <div
+                  class="flex flex-wrap gap-4 justify-center lg:justify-start pt-4 w-full"
+                >
+                  <button
+                    class="flex-1 sm:flex-none min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-primary hover:bg-primary-dark text-navy text-base font-bold transition-all shadow-lg hover:shadow-primary/25"
+                  >
+                    Get Started
+                  </button>
+                  <button
+                    class="flex-1 sm:flex-none min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-white dark:bg-[#1e2a2a] border border-gray-200 dark:border-gray-700 text-navy dark:text-white text-base font-bold transition-all hover:bg-gray-50 dark:hover:bg-[#2a3838]"
+                  >
+                    <span class="flex items-center gap-2">
+                      <span class="material-symbols-outlined">play_circle</span>
+                      Learn More
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="flex items-center gap-4 pt-4 text-sm text-gray-500 dark:text-gray-400"
+                >
+                  <div class="flex -space-x-3">
+                    <div
+                      class="w-10 h-10 rounded-full border-2 border-white dark:border-background-dark bg-gray-200 bg-cover bg-center"
+                      data-alt="Student portrait 1"
+                      style="
+                        background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB45dl7tQmWYXfcts9bGGsgE_cM08p35a2bxWIH5gQ7Sf3d2kNc7nv5tXxeAZqDVwxy5PqztM6Wdo1O2Zfsfx7hWmtIFkUS9BeH7swKB23LnK2cPJl8fIjKUtmzGwnYNxnCa3PVVICpLjASqv_QHy6NE8yW0POLaU1EtHP2Ugpee5H-vEchHvrJCmwsjvaVy-2PlZIBz8qULXnKsxTsxNEwz2ngiulRyM8I3Q9PGlumigOSCKcMiVPePcbI0Qq3PR5QJw57BDW1tg');
+                      "
+                    ></div>
+                    <div
+                      class="w-10 h-10 rounded-full border-2 border-white dark:border-background-dark bg-gray-200 bg-cover bg-center"
+                      data-alt="Student portrait 2"
+                      style="
+                        background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuARHgl7brO6Ze4do6qKOwso7AcfBCjJp-5NR3TqgLsWMopohcGstmcsA1-T0KTUysauSM2fXhE136lBPMcOpnqOQwEUVxOYKt0Mi0Sq4jKRaoJ2TiANKOhJ7Q09Ft_8CvHG53T-FKJNdijuh3H5XF5o-0lmYtiwbNOduX0yBfqUJZa8bbQ6JiZ-xQ2bQOiq69dHzwJEQCDo_UXPFCio-c8N4jG5NEAhJAqCpSHUg0NaEETJIJ9SvxJXltZA30hTggG65KjoG2j0Kw');
+                      "
+                    ></div>
+                    <div
+                      class="w-10 h-10 rounded-full border-2 border-white dark:border-background-dark bg-gray-200 bg-cover bg-center"
+                      data-alt="Student portrait 3"
+                      style="
+                        background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBZMzwEK6Z2vDJ5SvReE6r9KgEPI-tJ-le6Q-QIIVoKSpVY36Zcj6rI58E8X60oMBZytxFNJmC03YvtABjDzyaw0vVK89v2zA9DNzelXNdKtuJKvdx-_1sTGLYxHym4boqpM7fahHIHUCA-kCUsv9eHm3a4DwQmsLlx-2JCIvvbQ0sgFV2f5LvqPiK0WhvPAZfuvmmRSCYFgx1GFt4DLw_ox_bq2_hIq1xROaF-r5u4oWA0ELPPkUGv38XSty3ycWjXVcUSICryyQ');
+                      "
+                    ></div>
+                    <div
+                      class="w-10 h-10 rounded-full border-2 border-white dark:border-background-dark bg-gray-100 flex items-center justify-center text-xs font-bold text-navy"
+                    >
+                      +2k
+                    </div>
+                  </div>
+                  <p>Join 2,000+ students today</p>
+                </div>
+              </div>
+              <!-- Image/Visual -->
+              <div class="w-full flex-1 relative group">
+                <div
+                  class="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"
+                ></div>
+                <div
+                  class="relative w-full aspect-[4/3] lg:aspect-square bg-gray-100 dark:bg-[#1e2a2a] rounded-xl overflow-hidden shadow-2xl"
+                >
+                  <img
+                    class="w-full h-full object-cover"
+                    data-alt="Group of diverse university students collaborating on a project with laptops outdoors"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC84TB61xvCdaLwDws7iZE5VAud2N-IXvBtjPXN3qvBanJRJjF1GXnFxsHvuLiSTa0YFHO9LNpmnnbg4-a7c6PkYMwiSIE7XJZ_o1ZBZ6w1ALgnuCW9hW7aSgp8guMH8n7W84-HGIJp36jvc49s0E8dIOQ6SQBNcWZXIkn-fWeyqUKW3rFFvb77LNo4nmcMFrXEqL88R9Y3mWGN_51PYCQ9OUw_XNji7qhbaTBUMGkzMrwaTMtGdyJUpn5wFQti1D1xET2LUCZ2SQ"
+                  />
+                  <!-- Floating UI Element Mockup -->
+                  <div
+                    class="absolute bottom-6 left-6 right-6 p-4 bg-white/95 dark:bg-[#1e2a2a]/95 backdrop-blur-sm rounded-lg shadow-lg border border-gray-100 dark:border-gray-700 animate-bounce"
+                    style="animation-duration: 3s"
+                  >
+                    <div class="flex items-center gap-3">
+                      <div
+                        class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary-dark dark:text-primary"
+                      >
+                        <span class="material-symbols-outlined">campaign</span>
+                      </div>
+                      <div>
+                        <p class="text-xs font-bold text-gray-400 uppercase">
+                          New Pitch
+                        </p>
+                        <p class="text-sm font-bold text-navy dark:text-white">
+                          Chinedu's Graphic Design Hub
+                        </p>
+                      </div>
+                      <button
+                        class="ml-auto text-xs bg-navy dark:bg-white text-white dark:text-navy px-3 py-1.5 rounded font-bold"
+                      >
+                        Connect
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- The Pulse (Story Carousel) -->
+      <div
+        class="w-full bg-white dark:bg-[#152323] border-y border-[#dbe6e6] dark:border-[#2a3838] py-8"
+      >
+        <div
+          class="max-w-[1200px] mx-auto px-4 md:px-10 lg:px-40 flex flex-col gap-6"
+        >
+          <div class="flex items-center justify-between">
+            <div>
+              <h3
+                class="text-xl font-bold text-navy dark:text-white flex items-center gap-2"
+              >
+                <span class="material-symbols-outlined text-primary"
+                  >equalizer</span
+                >
+                The Pulse
+              </h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400">
+                See what's trending on campus right now
+              </p>
+            </div>
+            <a
+              class="text-primary hover:text-primary-dark text-sm font-bold flex items-center gap-1"
+              href="#"
+              >View All
+              <span class="material-symbols-outlined text-sm"
+                >arrow_forward</span
+              ></a
+            >
+          </div>
+          <div class="flex w-full overflow-x-auto pb-4 gap-4 scrollbar-hide">
+            <!-- Story Item 1 -->
+            <div class="flex flex-col gap-2 min-w-[100px] cursor-pointer group">
+              <div
+                class="w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-primary p-0.5 relative"
+              >
+                <div
+                  class="w-full h-full rounded-lg bg-gray-200 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                  data-alt="Student smiling holding books"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCHSBqkJiKtB1hf-yNlgLd8V-1swrV6KJCMHiOmpyCON6WZbPHqyZijDAjpB9d9xfILXQ3tlof_IOzx5cHVFs1Zmoqu81lFhdrrgWsq44pWuoLgry0Gvyhmb8rlCgs-wDlRI3IZ0k5joHANUiLwP_qBgAxegqP1f8iRNR2EP3NGjMwGiuUVYqwd0xCUuHpZFeGG5zcVeXBm-7N16BLwv6HUN3d8jFri3aa9RxJPJ0NMvonzUjVdk32suYu_63J8x808JcsQ7CaJrA');
+                  "
+                >
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+                  ></div>
+                  <span
+                    class="absolute bottom-2 left-2 text-white text-xs font-bold"
+                    >@funmi</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Story Item 2 -->
+            <div class="flex flex-col gap-2 min-w-[100px] cursor-pointer group">
+              <div
+                class="w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 p-0.5 relative"
+              >
+                <div
+                  class="w-full h-full rounded-lg bg-gray-200 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                  data-alt="Group of friends hanging out"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPVPuiLvhFWzCOid0-PJEmO347OBcfid9bih8gR7KVJsQ3vqvmlNT95R9DvUcV7QMWU8q0CCtK5h2S1RitqQXS6usPLSiymJ_511xGRPzg036Y2Gs8vbud8KP5eNwWpCacgn50TW_YscM_MfQ1O9g0jcBqLeFGF9QjoqbmZVI-8VFFEshp4K59N3r1Nd-Un5lqVTdEyOJDKRlIoHFBX49w4wX6Cb-YmQSbqtUtBcHUiIjmKQuAlNGVSl-453NjxRC_zGf8alulEQ');
+                  "
+                >
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+                  ></div>
+                  <span
+                    class="absolute bottom-2 left-2 text-white text-xs font-bold"
+                    >@squad_goals</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Story Item 3 -->
+            <div class="flex flex-col gap-2 min-w-[100px] cursor-pointer group">
+              <div
+                class="w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 p-0.5 relative"
+              >
+                <div
+                  class="w-full h-full rounded-lg bg-gray-200 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                  data-alt="Business meeting in cafe"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAG1UcWYHsIoHGX7B4pGx47rBONNAS4mlJg-Yg7cyET3ADIiqtckN0X591bda96aBL4UdzzPJO1NzwfjMaIQxd6UTEslP65aRzUnKZ63QdlYj4qkVFgzRIGQDnpbhE8Dk62GS7z0Rjra-q3Ms8TMvFVIg_6KXxLR14glgxTYz8WwIDml_wv5znd21_gyhZmNXuErmm8VvEfk663ZX5bQyAXaIwOnNEV8jrNifJuYYqOO8oLLFwPG4p8LiJBEQyXU-eVNTia5ZL8og');
+                  "
+                >
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+                  ></div>
+                  <span
+                    class="absolute bottom-2 left-2 text-white text-xs font-bold"
+                    >@biz_hub</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Story Item 4 -->
+            <div class="flex flex-col gap-2 min-w-[100px] cursor-pointer group">
+              <div
+                class="w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 p-0.5 relative"
+              >
+                <div
+                  class="w-full h-full rounded-lg bg-gray-200 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                  data-alt="Coding on laptop close up"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDqS35gOKaEawH0VLnbUE8hNKe0iTFPZ995bcP7x9rmx_WyBgRAk4XsTrebUe1NdV9HtzRgkhtOsvQBejmLGLdv9OGF1SzIJBXxeZlb4ETGKYjvfxAl4B2_ampjmseKzaxdCrs3hzzk7092PsjQpremtZzL5oZ8AqtxF8hFO6vLJyP2_icj6OBdXJGVq4kOHum6-hxXw1uM0xMU4OiD1r2sbGYL6hoMCCyHtFPgUdVOWQ4ZhqWjqNF0MMnDKVm4OM3_-hxjI4UoQw');
+                  "
+                >
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+                  ></div>
+                  <span
+                    class="absolute bottom-2 left-2 text-white text-xs font-bold"
+                    >@tech_bro</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Story Item 5 -->
+            <div class="flex flex-col gap-2 min-w-[100px] cursor-pointer group">
+              <div
+                class="w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 p-0.5 relative"
+              >
+                <div
+                  class="w-full h-full rounded-lg bg-gray-200 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                  data-alt="Healthy food bowl"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAqpYnZpDS4v0u-wy5kzcRvEshBi38OA5hJJMnLeQ0I4uKXQGuSZgBH2n1atpaTWiaX51ZUaoLbCIEwDoU7OPPdTIGZwPjFHZ93bumiRiJ5LCD8CAGt7nIQup2C2f5cuphvDIem7NqvIcfr0d1N8gbYUWTYJC0ySKDdxZX8g8ltGpal_3lLQY8cjiv2kFcrVjKt707Tm5jWfsMBpzFaYdb4rqWDZbZ8fi5AaSRPUAukFfrqLQgjaOb7qlM1XBE-163L7_-4FvqRZw');
+                  "
+                >
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+                  ></div>
+                  <span
+                    class="absolute bottom-2 left-2 text-white text-xs font-bold"
+                    >@lagos_eats</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Role Tabs & Features -->
+      <div
+        class="py-16 px-4 md:px-10 lg:px-40 bg-background-light dark:bg-background-dark"
+      >
+        <div class="max-w-[1200px] mx-auto flex flex-col gap-10">
+          <div class="flex flex-col items-center text-center gap-4">
+            <h2
+              class="text-3xl md:text-4xl font-black text-navy dark:text-white"
+            >
+              One Platform. Multiple Possibilities.
+            </h2>
+            <p class="text-gray-600 dark:text-gray-300 max-w-2xl">
+              Whether you're looking to make friends, sell a service, or grow a
+              brand, Akospace adapts to you.
+            </p>
+          </div>
+          <!-- Tabs -->
+          <div class="flex justify-center w-full mb-6">
+            <div
+              class="flex w-full max-w-lg border-b border-[#dbe6e6] dark:border-[#2a3838]"
+            >
+              <button
+                class="flex flex-col items-center justify-center border-b-[3px] border-b-primary text-navy dark:text-white pb-3 pt-4 flex-1 hover:bg-gray-50 dark:hover:bg-[#1e2a2a] transition-colors"
+              >
+                <p class="text-sm font-bold leading-normal tracking-[0.015em]">
+                  For Students
+                </p>
+              </button>
+              <button
+                class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-gray-500 dark:text-gray-400 pb-3 pt-4 flex-1 hover:text-navy dark:hover:text-white transition-colors"
+              >
+                <p class="text-sm font-bold leading-normal tracking-[0.015em]">
+                  For Consultants
+                </p>
+              </button>
+              <button
+                class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-gray-500 dark:text-gray-400 pb-3 pt-4 flex-1 hover:text-navy dark:hover:text-white transition-colors"
+              >
+                <p class="text-sm font-bold leading-normal tracking-[0.015em]">
+                  For Businesses
+                </p>
+              </button>
+            </div>
+          </div>
+          <!-- Feature Grid (Student Context) -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Feature Card 1 -->
+            <div
+              class="flex flex-col gap-4 rounded-xl border border-[#dbe6e6] dark:border-[#2a3838] bg-white dark:bg-[#152323] p-6 hover:shadow-xl transition-shadow duration-300 group"
+            >
+              <div
+                class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary-dark dark:text-primary group-hover:bg-primary group-hover:text-navy transition-colors"
+              >
+                <span class="material-symbols-outlined">groups</span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-navy dark:text-white text-xl font-bold">
+                  Connect &amp; Vibe
+                </h3>
+                <p
+                  class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed"
+                >
+                  Find your tribe based on interests, department, or hostel.
+                  Share moments and stay in the loop.
+                </p>
+              </div>
+            </div>
+            <!-- Feature Card 2 -->
+            <div
+              class="flex flex-col gap-4 rounded-xl border border-[#dbe6e6] dark:border-[#2a3838] bg-white dark:bg-[#152323] p-6 hover:shadow-xl transition-shadow duration-300 group"
+            >
+              <div
+                class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary-dark dark:text-primary group-hover:bg-primary group-hover:text-navy transition-colors"
+              >
+                <span class="material-symbols-outlined">school</span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-navy dark:text-white text-xl font-bold">
+                  Monetize Skills
+                </h3>
+                <p
+                  class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed"
+                >
+                  Good at design? Writing? Coding? List your services as a
+                  student consultant and get paid.
+                </p>
+              </div>
+            </div>
+            <!-- Feature Card 3 -->
+            <div
+              class="flex flex-col gap-4 rounded-xl border border-[#dbe6e6] dark:border-[#2a3838] bg-white dark:bg-[#152323] p-6 hover:shadow-xl transition-shadow duration-300 group"
+            >
+              <div
+                class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary-dark dark:text-primary group-hover:bg-primary group-hover:text-navy transition-colors"
+              >
+                <span class="material-symbols-outlined">storefront</span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-navy dark:text-white text-xl font-bold">
+                  Marketplace Access
+                </h3>
+                <p
+                  class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed"
+                >
+                  Discover campus businesses, order food, or find services—all
+                  rated by your peers.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Marketplace Preview / Trust Section -->
+      <div class="py-16 bg-white dark:bg-[#152323] px-4 md:px-10 lg:px-40">
+        <div
+          class="max-w-[1200px] mx-auto flex flex-col md:flex-row gap-12 items-center"
+        >
+          <div class="flex-1 flex flex-col gap-6">
+            <h2
+              class="text-3xl md:text-4xl font-black text-navy dark:text-white"
+            >
+              Trusted by Top Campus Creators
+            </h2>
+            <p class="text-gray-600 dark:text-gray-300 text-lg">
+              Our review system ensures you only work with the best. Real
+              ratings from real students.
+            </p>
+            <div class="flex flex-col gap-4">
+              <div
+                class="flex items-center gap-4 p-4 rounded-lg bg-background-light dark:bg-background-dark border border-[#dbe6e6] dark:border-[#2a3838]"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-cover bg-center"
+                  data-alt="Portrait of a female student entrepreneur"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBxMgUZ_9BO2_ldKGWxyWuSG5mXGhvTOtt6lpiFRe9nLhXeDuloZ5sflE4chZP7SutOisqojzpU5Y01qz86qaeTFKI4DxFUFvi0Vz5265HAg9kwfuHFVZiCPm-NDq6PNOxx4ANa2meiVqtMtZQwHKSYavYdDx46W8Co6DhR1d3G3mgECIE9_phhHrrvmPCyeo6ZOaTpL_98qBWBJUlV9c7RJB3iumUfPy8HnWqR-xUBLKpKBui3MchdOMDG_AMaFeml4g51PkSe3g');
+                  "
+                ></div>
+                <div>
+                  <h4 class="text-navy dark:text-white font-bold text-sm">
+                    Nkechi's Hair Studio
+                  </h4>
+                  <div class="flex text-yellow-400 text-sm">
+                    <span class="material-symbols-outlined !text-sm">star</span>
+                    <span class="material-symbols-outlined !text-sm">star</span>
+                    <span class="material-symbols-outlined !text-sm">star</span>
+                    <span class="material-symbols-outlined !text-sm">star</span>
+                    <span class="material-symbols-outlined !text-sm"
+                      >star_half</span
+                    >
+                    <span class="text-gray-400 ml-1 text-xs"
+                      >(124 Reviews)</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 p-4 rounded-lg bg-background-light dark:bg-background-dark border border-[#dbe6e6] dark:border-[#2a3838]"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-cover bg-center"
+                  data-alt="Portrait of a male student consultant"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDFKuobuJEKCZZ4iVJtqESKbIqBB7bO-qIRGFw7f4SYPO0843NFceW3LzOr7AlLI63ifmQwJWLfcjPFDY9CZfPof5wvtI48g6mKM-dPPecymPaFqeYamWMTrOzbfKcUMYU0KuUSBqX_JkON5oaaevaCxI6-YEqxXzMVb6eVFaSahpLUmVnkPiiXKWmho6Ty8KlEcOY5iJs7z15so9YO_AMFf2bEOpu9gM8Uw4bC5SXTZeIF2l7Lp6TbuzBTty2nK42FKXOR205G4g');
+                  "
+                ></div>
+                <div>
+                  <h4 class="text-navy dark:text-white font-bold text-sm">
+                    David Tech Solutions
+                  </h4>
+                  <div class="flex text-yellow-400 text-sm">
+                    <span class="material-symbols-outlined !text-sm">star</span>
+                    <span class="material-symbols-outlined !text-sm">star</span>
+                    <span class="material-symbols-outlined !text-sm">star</span>
+                    <span class="material-symbols-outlined !text-sm">star</span>
+                    <span class="material-symbols-outlined !text-sm">star</span>
+                    <span class="text-gray-400 ml-1 text-xs">(89 Reviews)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex-1 w-full grid grid-cols-2 gap-4">
+            <div
+              class="bg-primary/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center h-40"
+            >
+              <span
+                class="text-4xl font-black text-primary-dark dark:text-primary mb-2"
+                >5k+</span
+              >
+              <span class="text-sm font-bold text-navy dark:text-white"
+                >Active Students</span
+              >
+            </div>
+            <div
+              class="bg-blue-500/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center h-40"
+            >
+              <span
+                class="text-4xl font-black text-blue-600 dark:text-blue-400 mb-2"
+                >250+</span
+              >
+              <span class="text-sm font-bold text-navy dark:text-white"
+                >Registered Biz</span
+              >
+            </div>
+            <div
+              class="bg-purple-500/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center h-40 col-span-2"
+            >
+              <span
+                class="text-4xl font-black text-purple-600 dark:text-purple-400 mb-2"
+                >₦20M+</span
+              >
+              <span class="text-sm font-bold text-navy dark:text-white"
+                >Revenue Generated by Students</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- CTA Section -->
+      <div
+        class="py-20 px-4 md:px-10 lg:px-40 bg-gradient-to-br from-[#102222] to-[#0a1515] text-white"
+      >
+        <div
+          class="max-w-4xl mx-auto text-center flex flex-col items-center gap-8"
+        >
+          <h2 class="text-3xl md:text-5xl font-black tracking-tight">
+            Ready to pitch your hustle?
+          </h2>
+          <p class="text-gray-300 text-lg max-w-xl">
+            Join the fastest growing student community in Nigeria. Sign up in
+            seconds and start connecting.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <button
+              class="flex items-center justify-center gap-2 rounded-lg h-12 px-8 bg-primary text-navy font-bold hover:bg-white transition-colors"
+            >
+              Create Free Account
+            </button>
+            <button
+              class="flex items-center justify-center gap-2 rounded-lg h-12 px-8 bg-transparent border border-gray-600 text-white font-bold hover:bg-white/10 transition-colors"
+            >
+              Download App
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <footer
+        class="bg-background-dark text-white pt-16 pb-8 px-4 md:px-10 lg:px-40 border-t border-[#1e2a2a]"
+      >
+        <div
+          class="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12"
+        >
+          <div class="col-span-2 lg:col-span-2 flex flex-col gap-4 pr-8">
+            <div class="flex items-center gap-2 text-primary">
+              <span class="material-symbols-outlined">hub</span>
+              <span class="text-xl font-bold">Akospace</span>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+              Empowering Nigerian students to connect, learn, and earn. Built
+              with love in Lagos.
+            </p>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h4
+              class="font-bold text-sm uppercase tracking-wider text-gray-500"
+            >
+              Platform
+            </h4>
+            <a
+              class="text-gray-300 hover:text-primary transition-colors text-sm"
+              href="#"
+              >For Students</a
+            >
+            <a
+              class="text-gray-300 hover:text-primary transition-colors text-sm"
+              href="#"
+              >For Business</a
+            >
+            <a
+              class="text-gray-300 hover:text-primary transition-colors text-sm"
+              href="#"
+              >Pricing</a
+            >
+          </div>
+          <div class="flex flex-col gap-4">
+            <h4
+              class="font-bold text-sm uppercase tracking-wider text-gray-500"
+            >
+              Company
+            </h4>
+            <a
+              class="text-gray-300 hover:text-primary transition-colors text-sm"
+              href="#"
+              >About Us</a
+            >
+            <a
+              class="text-gray-300 hover:text-primary transition-colors text-sm"
+              href="#"
+              >Careers</a
+            >
+            <a
+              class="text-gray-300 hover:text-primary transition-colors text-sm"
+              href="#"
+              >Blog</a
+            >
+          </div>
+          <div class="flex flex-col gap-4">
+            <h4
+              class="font-bold text-sm uppercase tracking-wider text-gray-500"
+            >
+              Support
+            </h4>
+            <a
+              class="text-gray-300 hover:text-primary transition-colors text-sm"
+              href="#"
+              >Help Center</a
+            >
+            <a
+              class="text-gray-300 hover:text-primary transition-colors text-sm"
+              href="#"
+              >Safety</a
+            >
+            <a
+              class="text-gray-300 hover:text-primary transition-colors text-sm"
+              href="#"
+              >Terms of Service</a
+            >
+          </div>
+        </div>
+        <div
+          class="max-w-[1200px] mx-auto pt-8 border-t border-[#1e2a2a] flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-gray-500 text-sm">
+            © 2024 Akospace. All rights reserved.
+          </p>
+          <div class="flex gap-4">
+            <a class="text-gray-400 hover:text-white transition-colors" href="#"
+              ><span class="sr-only">Twitter</span
+              ><svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                <path
+                  d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                ></path></svg
+            ></a>
+            <a class="text-gray-400 hover:text-white transition-colors" href="#"
+              ><span class="sr-only">Instagram</span
+              ><svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                <path
+                  clip-rule="evenodd"
+                  d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 014.18 3.388c.636-.247 1.363-.416 2.427-.465C7.674 2.012 8.029 2 10.457 2h1.858zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                  fill-rule="evenodd"
+                ></path></svg
+            ></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
