@@ -86,16 +86,26 @@ const Hero = () => {
           opacity: 0,
           y: 100,
           scale: 0.5,
+          filter: "blur(0px)",
         },
         {
           opacity: 1,
           y: 0,
           scale: 1,
+          filter: "blur(0px)",
           duration: 1.2,
           ease: "elastic.out(1, 0.6)",
         },
         "-=0.5"
       );
+
+      // Then scale up and blur out as user continues scrolling
+      tl.to(taglineRef.current, {
+        scale: 2.5,
+        filter: "blur(20px)",
+        opacity: 0,
+        ease: "power2.in",
+      });
     }
 
     // Fade out image and overlay completely
@@ -182,7 +192,7 @@ const Hero = () => {
         </h1>
       </div>
 
-      {/* Tagline - Fixed Gradient with Animation */}
+      {/* Tagline - Scale up and blur out */}
       <div
         className="absolute z-50"
         style={{
@@ -205,7 +215,6 @@ const Hero = () => {
             color: "transparent",
             WebkitTextFillColor: "transparent",
             display: "inline-block",
-            opacity: 0,
           }}
         >
           WHERE IDEAS MEET OPPORTUNITY
