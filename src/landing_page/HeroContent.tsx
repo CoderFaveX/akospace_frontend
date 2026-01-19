@@ -2,7 +2,6 @@ import type { RefObject } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import heroImg from "../assets/avatars/discussion2.png";
-import FeaturesSection from "./FeaturesSection";
 
 interface HeroContentProps {
   badgeRef: RefObject<HTMLDivElement>;

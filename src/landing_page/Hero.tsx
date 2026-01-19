@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, type RefObject } from "react";
+import { useEffect, useRef, type RefObject } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HeroBackground from "./HeroBackground";
 import HeroText from "./HeroText";
@@ -7,7 +7,6 @@ import ScrollIndicator from "./ScrollIndicator";
 import HeroContent from "./HeroContent";
 import PulseSection from "./PulseSection";
 import { useHeroAnimations } from "./useHeroAnimations";
-import FeaturesSection from "./FeaturesSection";
 
 const Hero = () => {
   // Hero refs

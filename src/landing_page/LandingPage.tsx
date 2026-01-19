@@ -1,4 +1,3 @@
-import ContentSection from "./ContentSection";
 import FeaturesSection from "./FeaturesSection";
 import Hero from "./Hero";
 import NavBar from "./NavBar";
@@ -9,7 +8,6 @@ const LandingPage = () => {
       <NavBar />
       <Hero />
       <FeaturesSection />
-      {/* <ContentSection /> */}
     </main>
   );
 };
