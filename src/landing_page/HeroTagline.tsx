@@ -14,14 +14,14 @@ const HeroTagline = ({ taglineRef }: HeroTaglineProps) => {
     >
       <h2
         ref={taglineRef}
-        className="text-4xl md:text-6xl font-inter lg:text-8xl font-bold text-center uppercase tracking-tight leading-tight px-6"
+        className="text-5xl md:text-4xl xl:text-5xl 2xl:text-6xl font-inter font-bold text-center uppercase tracking-tight leading-tight px-4 xl:px-6"
         style={{
           backgroundImage: "linear-gradient(135deg, #e04e5e 0%, #e9ab74 100%)",
           backgroundClip: "text",
           WebkitBackgroundClip: "text",
           color: "transparent",
           WebkitTextFillColor: "transparent",
-          maxWidth: "1200px",
+          maxWidth: "1000px",
         }}
       >
         Where Ideas Meet Opportunity

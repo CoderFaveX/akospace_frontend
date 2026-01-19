@@ -105,24 +105,24 @@ export default function FeaturesSection() {
 
   return (
     <section
-      className="relative w-screen left-1/2 -translate-x-1/2 py-12 md:py-16 z-30 font-google-sans-flex"
+      className="relative w-screen left-1/2 -translate-x-1/2 py-10 xl:py-12 2xl:py-16 z-30 font-google-sans-flex"
       style={{ backgroundColor: "#102222" }}
     >
-      <div className="relative max-w-6xl mx-auto px-6 md:px-8 lg:px-12">
-        {/* Header */}
-        <div className="text-center mb-16 md:mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+      <div className="relative max-w-6xl mx-auto px-4 md:px-6 xl:px-8 2xl:px-12">
+        {/* Header - Reduced spacing on laptop */}
+        <div className="text-center mb-12 xl:mb-16 2xl:mb-20">
+          <h2 className="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white mb-4 xl:mb-6">
             One Platform. Multiple Possibilities.
           </h2>
-          <p className="text-teal-400/70 text-base md:text-lg max-w-2xl mx-auto">
+          <p className="text-teal-400/70 text-sm md:text-base xl:text-lg max-w-2xl mx-auto">
             Whether you're looking to make friends, sell a service, or grow a
             brand. Akospace adapts to you.
           </p>
         </div>
 
-        {/* Tabs */}
-        <div className="flex justify-center mb-16 md:mb-24">
-          <div className="relative inline-flex gap-8 md:gap-12">
+        {/* Tabs - Reduced spacing on laptop */}
+        <div className="flex justify-center mb-12 xl:mb-16 2xl:mb-24">
+          <div className="relative inline-flex gap-6 xl:gap-8 2xl:gap-12">
             {[
               { id: "students", label: "For Students" },
               { id: "consultants", label: "For Consultants" },
@@ -134,7 +134,7 @@ export default function FeaturesSection() {
                   tabsRef.current[tab.id] = el;
                 }}
                 onClick={() => setActiveTab(tab.id)}
-                className={`pb-3 font-medium text-sm md:text-base transition-colors cursor-pointer duration-300 ${
+                className={`pb-2 xl:pb-3 font-medium text-xs md:text-sm xl:text-base transition-colors cursor-pointer duration-300 ${
                   activeTab === tab.id
                     ? "text-white"
                     : "text-teal-400/50 hover:text-teal-400/70"
@@ -152,9 +152,9 @@ export default function FeaturesSection() {
           </div>
         </div>
 
-        {/* Features Grid */}
+        {/* Features Grid - Reduced spacing on laptop */}
         <div
-          className={`grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8
+          className={`grid grid-cols-1 md:grid-cols-3 gap-6 xl:gap-6 2xl:gap-8
           transition-all duration-300 ease-out
           ${isAnimating ? "opacity-0 translate-y-6" : "opacity-100 translate-y-0"}`}
         >
@@ -163,16 +163,16 @@ export default function FeaturesSection() {
             return (
               <div
                 key={index}
-                className="p-8 md:p-6 lg:p-8 rounded-lg border border-teal-500/20 hover:border-teal-500/40 transition-all duration-300"
+                className="p-6 xl:p-6 2xl:p-8 rounded-lg border border-teal-500/20 hover:border-teal-500/40 transition-all duration-300"
               >
-                <div className="mb-6">
-                  <Icon className="w-8 h-8 text-teal-500" strokeWidth={1.5} />
+                <div className="mb-4 xl:mb-6">
+                  <Icon className="w-7 xl:w-8 h-7 xl:h-8 text-teal-500" strokeWidth={1.5} />
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-3">
+                <h3 className="text-lg xl:text-xl font-bold text-white mb-2 xl:mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-teal-400/60 text-sm md:text-base">
+                <p className="text-teal-400/60 text-sm xl:text-base">
                   {feature.description}
                 </p>
               </div>

@@ -163,7 +163,7 @@ const NavBar = () => {
     const navTween = gsap.timeline({
       scrollTrigger: {
         trigger: "body", // Trigger based on page scroll, not nav itself
-        start: "top top+=80", // When you've scrolled 80px (adjust to your nav height)
+        start: "top top+=60", // Reduced from 80px to 60px for smaller screens
         toggleActions: "play none none reverse", // Reverse on scroll back up
       },
     });
@@ -173,7 +173,7 @@ const NavBar = () => {
       { backgroundColor: "transparent" },
       {
         backgroundColor: "#00000050",
-        backdropFilter: "blur(20px)", // Fixed typo: backdropFilter not backgroundFilter
+        backdropFilter: "blur(20px)",
         duration: 1,
         ease: "power1.out",
       }
@@ -183,19 +183,19 @@ const NavBar = () => {
   return (
     <section className="font-google-sans-flex!">
       <nav
-        className={`flex fixed top-0 left-0 w-full font-google-sans-flex items-center justify-between px-6 py-3 bg-[#0a0a0a] border-b border-gray-800 z-50`}
+        className={`flex fixed top-0 left-0 w-full font-google-sans-flex items-center justify-between px-4 xl:px-6 py-2 xl:py-3 bg-[#0a0a0a] border-b border-gray-800 z-50`}
       >
-        {/* Logo */}
+        {/* Logo - Slightly smaller on laptop screens */}
         <div
           className="flex items-center justify-center space-x-2 cursor-pointer"
           onClick={() => navigate("/")}
         >
-          <img src={logo} alt="Akospace logo" className="h-7 w-7" />
-          <span className="text-lg font-medium text-white">Akospace</span>
+          <img src={logo} alt="Akospace logo" className="h-6 xl:h-7 w-6 xl:w-7" />
+          <span className="text-base xl:text-lg font-medium text-white">Akospace</span>
         </div>
 
-        {/* Desktop Links (hidden at md and below) */}
-        <ul className="hidden lg:flex space-x-8 text-gray-300 text-md font-medium">
+        {/* Desktop Links - Reduced spacing for smaller screens */}
+        <ul className="hidden lg:flex space-x-4 xl:space-x-8 text-gray-300 text-sm xl:text-md font-medium">
           <li>
             <Link
               to="/feed"
@@ -245,12 +245,12 @@ const NavBar = () => {
           </li>
         </ul>
 
-        {/* Auth Buttons (hidden at sm and below) */}
-        <div className="hidden md:flex space-x-3">
-          <button className="px-4 py-1.5 cursor-pointer border border-gray-700 text-sm font-medium rounded-md text-gray-300 hover:bg-white hover:text-black hover:border-white transition-all">
+        {/* Auth Buttons - More compact on smaller screens */}
+        <div className="hidden md:flex space-x-2 xl:space-x-3">
+          <button className="px-3 xl:px-4 py-1.5 cursor-pointer border border-gray-700 text-xs xl:text-sm font-medium rounded-md text-gray-300 hover:bg-white hover:text-black hover:border-white transition-all">
             Login
           </button>
-          <button className="px-4 py-1.5 cursor-pointer hover:bg-white text-sm text-black rounded-md bg-(--stale-button) border border-transparent font-medium transition-all">
+          <button className="px-3 xl:px-4 py-1.5 cursor-pointer hover:bg-white text-xs xl:text-sm text-black rounded-md bg-(--stale-button) border border-transparent font-medium transition-all">
             Join Now
           </button>
         </div>
