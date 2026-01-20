@@ -474,7 +474,7 @@ const PulseSection = ({
 
         {/* Mobile swipe hint - only shown on mobile */}
         <button
-              className="mx-auto my-5 px-3 xl:px-4 py-1.5 xl:py-2 bg-[#0a1515]/10 cursor-pointer font-inter hover:bg-[#0a151515/20 border border-teal-500/50 rounded-full text-teal-400 text-xs xl:text-sm font-semibold transition-all duration-300 flex items-center gap-2 backdrop-blur-md"
+              className="mx-auto my-5 hidden max-[400]:block px-3 xl:px-4 py-1.5 xl:py-2 bg-[#0a1515]/10 cursor-pointer font-inter hover:bg-[#0a151515/20 border border-teal-500/50 rounded-full text-teal-400 text-xs xl:text-sm font-semibold transition-all duration-300 flex items-center gap-2 backdrop-blur-md"
             >
               <span className="sm:inline">Swipe To Navigate</span>
               <FontAwesomeIcon icon={faHandFist} className="text-xs xl:text-sm" />
