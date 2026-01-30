@@ -322,11 +322,31 @@ const PulseSection = ({
                     <div className="absolute inset-0 rounded-lg bg-linear-to-br from-white/10 via-white/5 to-transparent backdrop-blur-2xl border border-white/20 overflow-hidden">
                       {/* Background Image with Skeleton Loader */}
                       <div className="absolute inset-0">
-                        {/* Skeleton Loader */}
+                        {/* Enhanced Skeleton Loader */}
                         {!loadedImages[i] && (
-                          <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-shimmer bg-[length:200%_100%]">
-                            {/* Shimmer Effect */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
+                          <div className="absolute inset-0 bg-gray-800/50 backdrop-blur-sm overflow-hidden">
+                            {/* Animated shimmer wave */}
+                            <div 
+                              className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite]"
+                              style={{
+                                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)',
+                              }}
+                            />
+                            
+                            {/* Pulsing skeleton structure */}
+                            <div className="absolute inset-0 p-3 md:p-6 flex flex-col justify-between animate-pulse">
+                              {/* Top skeleton elements */}
+                              <div className="flex items-center gap-2 md:gap-3">
+                                <div className="w-7 h-7 md:w-10 md:h-10 rounded-full bg-gray-700/50" />
+                                <div className="h-3 md:h-4 w-20 md:w-24 bg-gray-700/50 rounded" />
+                              </div>
+                              
+                              {/* Bottom skeleton elements */}
+                              <div className="space-y-2">
+                                <div className="h-4 md:h-6 w-24 md:w-32 bg-gray-700/50 rounded" />
+                                <div className="h-2 md:h-3 w-32 md:w-40 bg-gray-700/50 rounded" />
+                              </div>
+                            </div>
                           </div>
                         )}
 
@@ -343,20 +363,22 @@ const PulseSection = ({
 
                         {/* Dark Overlay for Text Readability */}
                         <div
-                          className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${
+                          className={`absolute inset-0 bg-black/40 transition-opacity duration-500 ${
                             loadedImages[i] ? "opacity-100" : "opacity-0"
                           }`}
                         />
                         {/* Gradient Color Tint */}
                         <div
-                          className={`absolute inset-0 bg-linear-to-br ${item.gradient} mix-blend-overlay opacity-40 transition-opacity duration-300 ${
+                          className={`absolute inset-0 bg-linear-to-br ${item.gradient} mix-blend-overlay transition-opacity duration-500 ${
                             loadedImages[i] ? "opacity-40" : "opacity-0"
                           }`}
                         />
                       </div>
 
                       {/* Content Layer */}
-                      <div className="absolute inset-0 flex flex-col justify-between p-3 md:p-6 z-10">
+                      <div className={`absolute inset-0 flex flex-col justify-between p-3 md:p-6 z-10 transition-opacity duration-500 ${
+                        loadedImages[i] ? "opacity-100" : "opacity-0"
+                      }`}>
                         {/* Top: User Handle */}
                         <div className="flex items-center gap-2 md:gap-3">
                           <div

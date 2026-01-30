@@ -39,10 +39,22 @@ const HeroContent = ({
           ref={imageWrapperRef}
           className="relative rounded-xl xl:rounded-2xl overflow-hidden shadow-2xl"
         >
-          {/* Skeleton Loader */}
+          {/* Enhanced Skeleton Loader */}
           {!imageLoaded && (
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-shimmer bg-[length:200%_100%] z-10">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
+            <div className="absolute inset-0 bg-gray-800 z-10 overflow-hidden">
+              {/* Animated shimmer wave */}
+              <div 
+                className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite]"
+                style={{
+                  background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)',
+                }}
+              />
+              
+              {/* Pulsing skeleton blocks */}
+              <div className="absolute inset-0 p-6 flex flex-col justify-end animate-pulse space-y-3">
+                <div className="h-4 w-3/4 bg-gray-700/60 rounded" />
+                <div className="h-3 w-1/2 bg-gray-700/60 rounded" />
+              </div>
             </div>
           )}
 
@@ -50,14 +62,14 @@ const HeroContent = ({
           <img
             src={heroImg}
             alt="Students collaborating"
-            className={`w-full h-auto transition-opacity duration-500 ${
+            className={`w-full h-auto transition-opacity duration-700 ${
               imageLoaded ? "opacity-100" : "opacity-0"
             }`}
             onLoad={() => setImageLoaded(true)}
           />
 
           <div
-            className={`absolute inset-0 bg-linear-to-t from-black/60 to-transparent transition-opacity duration-500 ${
+            className={`absolute inset-0 bg-linear-to-t from-black/60 to-transparent transition-opacity duration-700 ${
               imageLoaded ? "opacity-100" : "opacity-0"
             }`}
           ></div>
@@ -66,8 +78,8 @@ const HeroContent = ({
         {/* Floating Pitch Card - More compact on laptop */}
         <div
           ref={cardRef}
-          className={`absolute -bottom-4 xl:-bottom-6 left-4 xl:left-6 right-4 xl:right-6 bg-[#1a1a1a]/95 backdrop-blur-xl border border-gray-700/50 rounded-lg xl:rounded-xl p-3 xl:p-4 shadow-2xl transition-opacity duration-500 ${
-            imageLoaded ? "opacity-100" : "opacity-0"
+          className={`absolute -bottom-4 xl:-bottom-6 left-4 xl:left-6 right-4 xl:right-6 bg-[#1a1a1a]/95 backdrop-blur-xl border border-gray-700/50 rounded-lg xl:rounded-xl p-3 xl:p-4 shadow-2xl transition-all duration-700 delay-200 ${
+            imageLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
           <div className="flex items-center justify-between">
