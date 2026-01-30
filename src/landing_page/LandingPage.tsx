@@ -21,7 +21,6 @@ const LandingPage = () => {
 
   // Refs for mobile PulseSection
   const pulseContainerRef = useRef<HTMLElement>(null);
-  const pulseScrollRef = useRef<HTMLDivElement>(null);
   const pulseHeadingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -66,7 +65,6 @@ const LandingPage = () => {
           <section className="relative w-full bg-[#152323]">
             <PulseSection
               pulseContainerRef={pulseContainerRef as RefObject<HTMLElement>}
-              pulseScrollRef={pulseScrollRef as RefObject<HTMLDivElement>}
               pulseHeadingRef={pulseHeadingRef as RefObject<HTMLDivElement>}
             />
           </section>
