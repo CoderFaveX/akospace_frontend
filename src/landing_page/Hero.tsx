@@ -38,7 +38,6 @@ const Hero = () => {
   }, []);
 
   // Initialize all animations
-
   useHeroAnimations({
     containerRef,
     imageRef,
@@ -104,23 +103,37 @@ const Hero = () => {
         handleScrollDown={handleScrollDown}
       />
 
-      <HeroContent
-        badgeRef={badgeRef as RefObject<HTMLDivElement>}
-        headingRef={headingRef as RefObject<HTMLHeadingElement>}
-        descriptionRef={descriptionRef as RefObject<HTMLParagraphElement>}
-        buttonsContainerRef={buttonsContainerRef as RefObject<HTMLDivElement>}
-        avatarsRef={avatarsRef as RefObject<HTMLDivElement>}
-        leftContentRef={leftContentRef as RefObject<HTMLDivElement>}
-        imageWrapperRef={imageWrapperRef as RefObject<HTMLDivElement>}
-        cardRef={cardRef as RefObject<HTMLDivElement>}
-        rightContentRef={rightContentRef as RefObject<HTMLDivElement>}
-      />
+      {/* Desktop HeroContent - Wrapped with absolute positioning */}
+      <section
+        className="absolute inset-0 w-full h-screen flex flex-col items-center justify-center z-30"
+        style={{
+          pointerEvents: "none",
+        }}
+      >
+        <div
+          className="max-w-7xl mx-auto w-full px-4 md:px-8 xl:px-12 2xl:px-20"
+          style={{ pointerEvents: "auto" }}
+        >
+          <HeroContent
+            badgeRef={badgeRef as RefObject<HTMLDivElement>}
+            headingRef={headingRef as RefObject<HTMLHeadingElement>}
+            descriptionRef={descriptionRef as RefObject<HTMLParagraphElement>}
+            buttonsContainerRef={
+              buttonsContainerRef as RefObject<HTMLDivElement>
+            }
+            avatarsRef={avatarsRef as RefObject<HTMLDivElement>}
+            leftContentRef={leftContentRef as RefObject<HTMLDivElement>}
+            imageWrapperRef={imageWrapperRef as RefObject<HTMLDivElement>}
+            cardRef={cardRef as RefObject<HTMLDivElement>}
+            rightContentRef={rightContentRef as RefObject<HTMLDivElement>}
+          />
+        </div>
+      </section>
+
       <PulseSection
         pulseContainerRef={pulseContainerRef as RefObject<HTMLElement>}
-        pulseScrollRef={pulseScrollRef as RefObject<HTMLDivElement>}
         pulseHeadingRef={pulseHeadingRef as RefObject<HTMLDivElement>}
       />
-
     </section>
   );
 };
