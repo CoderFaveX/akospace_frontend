@@ -28,11 +28,13 @@ const PulseSection = ({
   const [canNavigate, setCanNavigate] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
 
   const cardRefs = useRef<Record<number, HTMLDivElement | null>>({});
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const touchStartX = useRef<number>(0);
+  const touchStartY = useRef<number>(0);
   const touchEndX = useRef<number>(0);
   const isDragging = useRef<boolean>(false);
 
@@ -89,7 +91,12 @@ const PulseSection = ({
     },
   ];
 
-  /* -------------------- 3D Logic (from Code 1) -------------------- */
+  /* -------------------- Image Loading Handler -------------------- */
+  const handleImageLoad = (index: number) => {
+    setLoadedImages((prev) => ({ ...prev, [index]: true }));
+  };
+
+  /* -------------------- 3D Logic -------------------- */
   const getRelativePosition = (index: number) => {
     const diff = index - currentIndex;
     const len = pulseItems.length;
@@ -132,14 +139,20 @@ const PulseSection = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, [pulseHeadingRef, isVisible]);
 
-  /* -------------------- Navigation (Merged) -------------------- */
-  const animateToIndex = (nextIndex: number) => {
+  /* -------------------- Navigation with Seamless Loop -------------------- */
+  const animateToIndex = (direction: "next" | "prev") => {
     if (!canNavigate) return;
     setCanNavigate(false);
 
     const tl = gsap.timeline({
       onComplete: () => {
-        setCurrentIndex(nextIndex);
+        if (direction === "next") {
+          setCurrentIndex((prev) => (prev + 1) % pulseItems.length);
+        } else {
+          setCurrentIndex(
+            (prev) => (prev - 1 + pulseItems.length) % pulseItems.length,
+          );
+        }
         setCanNavigate(true);
       },
     });
@@ -150,7 +163,8 @@ const PulseSection = ({
 
       const rel = getRelativePosition(i);
       const from = get3DState(rel);
-      const to = get3DState(rel + (nextIndex > currentIndex ? -1 : 1));
+      const newRel = direction === "next" ? rel - 1 : rel + 1;
+      const to = get3DState(newRel);
 
       tl.fromTo(
         card,
@@ -175,23 +189,49 @@ const PulseSection = ({
     });
   };
 
-  const next = () => animateToIndex((currentIndex + 1) % pulseItems.length);
-  const prev = () =>
-    animateToIndex((currentIndex - 1 + pulseItems.length) % pulseItems.length);
+  const next = () => animateToIndex("next");
+  const prev = () => animateToIndex("prev");
 
-  /* -------------------- Handlers -------------------- */
-  const start = (x: number) => {
+  /* -------------------- Touch Handlers with iOS Safari Fix -------------------- */
+  const start = (x: number, y: number) => {
     touchStartX.current = x;
+    touchStartY.current = y;
     isDragging.current = true;
   };
-  const move = (x: number) => {
-    if (isDragging.current) touchEndX.current = x;
+
+  const move = (
+    x: number,
+    y: number,
+    e: React.TouchEvent | React.MouseEvent,
+  ) => {
+    if (!isDragging.current) return;
+
+    touchEndX.current = x;
+
+    const deltaX = Math.abs(x - touchStartX.current);
+    const deltaY = Math.abs(y - touchStartY.current);
+
+    if (deltaX > deltaY && deltaX > 10) {
+      e.preventDefault();
+    }
   };
+
   const end = () => {
     if (!isDragging.current) return;
     isDragging.current = false;
-    const delta = touchStartX.current - touchEndX.current;
-    if (Math.abs(delta) > 50) delta > 0 ? next() : prev();
+
+    const deltaX = touchStartX.current - touchEndX.current;
+    const deltaY = Math.abs(
+      touchStartY.current - (touchEndX.current || touchStartX.current),
+    );
+
+    if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > deltaY) {
+      deltaX > 0 ? next() : prev();
+    }
+
+    touchStartX.current = 0;
+    touchStartY.current = 0;
+    touchEndX.current = 0;
   };
 
   return (
@@ -202,7 +242,7 @@ const PulseSection = ({
         className="relative w-full py-16 md:py-20 xl:py-24 bg-[#0a1515] overflow-hidden z-50"
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          {/* Header & Button from Code 2 */}
+          {/* Header & Button */}
           <div
             ref={pulseHeadingRef as any}
             className={`flex flex-col items-center text-center mb-8 md:mb-12 space-y-4 transition-all duration-1000 ease-out ${
@@ -229,14 +269,26 @@ const PulseSection = ({
           {/* 3D Carousel Stage */}
           <div
             ref={carouselRef}
-            className="relative h-80 md:h-128 flex items-center justify-center select-none"
-            style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
-            onMouseDown={(e) => start(e.clientX)}
-            onMouseMove={(e) => move(e.clientX)}
+            className="relative h-80 md:h-128 flex items-center justify-center select-none touch-pan-y"
+            style={{
+              perspective: "1200px",
+              transformStyle: "preserve-3d",
+              touchAction: "pan-y",
+            }}
+            onMouseDown={(e) => start(e.clientX, e.clientY)}
+            onMouseMove={(e) => {
+              if (isDragging.current) {
+                move(e.clientX, e.clientY, e);
+              }
+            }}
             onMouseUp={end}
             onMouseLeave={end}
-            onTouchStart={(e) => start(e.touches[0].clientX)}
-            onTouchMove={(e) => move(e.touches[0].clientX)}
+            onTouchStart={(e) => {
+              start(e.touches[0].clientX, e.touches[0].clientY);
+            }}
+            onTouchMove={(e) => {
+              move(e.touches[0].clientX, e.touches[0].clientY, e);
+            }}
             onTouchEnd={end}
           >
             {pulseItems.map((item, i) => {
@@ -268,19 +320,38 @@ const PulseSection = ({
                   >
                     {/* Main Glass Card */}
                     <div className="absolute inset-0 rounded-lg bg-linear-to-br from-white/10 via-white/5 to-transparent backdrop-blur-2xl border border-white/20 overflow-hidden">
-                      {/* Background Image with Overlay */}
+                      {/* Background Image with Skeleton Loader */}
                       <div className="absolute inset-0">
+                        {/* Skeleton Loader */}
+                        {!loadedImages[i] && (
+                          <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-shimmer bg-[length:200%_100%]">
+                            {/* Shimmer Effect */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
+                          </div>
+                        )}
+
+                        {/* Actual Image */}
                         <img
                           src={item.img}
                           alt={item.handle}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          className={`w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ${
+                            loadedImages[i] ? "opacity-100" : "opacity-0"
+                          }`}
                           draggable={false}
+                          onLoad={() => handleImageLoad(i)}
                         />
+
                         {/* Dark Overlay for Text Readability */}
-                        <div className="absolute inset-0 bg-black/40" />
+                        <div
+                          className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${
+                            loadedImages[i] ? "opacity-100" : "opacity-0"
+                          }`}
+                        />
                         {/* Gradient Color Tint */}
                         <div
-                          className={`absolute inset-0 bg-linear-to-br ${item.gradient} mix-blend-overlay opacity-40`}
+                          className={`absolute inset-0 bg-linear-to-br ${item.gradient} mix-blend-overlay opacity-40 transition-opacity duration-300 ${
+                            loadedImages[i] ? "opacity-40" : "opacity-0"
+                          }`}
                         />
                       </div>
 
@@ -325,7 +396,6 @@ const PulseSection = ({
               );
             })}
 
-            {/* Nav Arrows */}
             {/* Nav Arrows - Hidden on Mobile */}
             <button
               onClick={prev}
@@ -346,9 +416,25 @@ const PulseSection = ({
             {pulseItems.map((_, index) => (
               <button
                 key={index}
-                onClick={() =>
-                  canNavigate && index !== currentIndex && animateToIndex(index)
-                }
+                onClick={() => {
+                  if (canNavigate && index !== currentIndex) {
+                    const totalItems = pulseItems.length;
+                    const forwardDistance =
+                      (index - currentIndex + totalItems) % totalItems;
+                    const backwardDistance =
+                      (currentIndex - index + totalItems) % totalItems;
+
+                    if (forwardDistance <= backwardDistance) {
+                      for (let i = 0; i < forwardDistance; i++) {
+                        setTimeout(() => next(), i * 100);
+                      }
+                    } else {
+                      for (let i = 0; i < backwardDistance; i++) {
+                        setTimeout(() => prev(), i * 100);
+                      }
+                    }
+                  }
+                }}
                 className={`h-1.5 rounded-full transition-all duration-300 ${index === currentIndex ? "w-8 bg-teal-400" : "w-2 bg-gray-600"}`}
               />
             ))}

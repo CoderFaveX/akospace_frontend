@@ -1,4 +1,4 @@
-import type { RefObject } from "react";
+import { useState, type RefObject } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import heroImg from "../assets/avatars/discussion2.png";
@@ -26,6 +26,8 @@ const HeroContent = ({
   cardRef,
   rightContentRef,
 }: HeroContentProps) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 xl:gap-12 lg:items-center">
       {/* Mobile: Image First, Desktop: Image on Right */}
@@ -37,18 +39,36 @@ const HeroContent = ({
           ref={imageWrapperRef}
           className="relative rounded-xl xl:rounded-2xl overflow-hidden shadow-2xl"
         >
+          {/* Skeleton Loader */}
+          {!imageLoaded && (
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-shimmer bg-[length:200%_100%] z-10">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
+            </div>
+          )}
+
+          {/* Hero Image */}
           <img
             src={heroImg}
             alt="Students collaborating"
-            className="w-full h-auto"
+            className={`w-full h-auto transition-opacity duration-500 ${
+              imageLoaded ? "opacity-100" : "opacity-0"
+            }`}
+            onLoad={() => setImageLoaded(true)}
           />
-          <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
+
+          <div
+            className={`absolute inset-0 bg-linear-to-t from-black/60 to-transparent transition-opacity duration-500 ${
+              imageLoaded ? "opacity-100" : "opacity-0"
+            }`}
+          ></div>
         </div>
 
         {/* Floating Pitch Card - More compact on laptop */}
         <div
           ref={cardRef}
-          className="absolute -bottom-4 xl:-bottom-6 left-4 xl:left-6 right-4 xl:right-6 bg-[#1a1a1a]/95 backdrop-blur-xl border border-gray-700/50 rounded-lg xl:rounded-xl p-3 xl:p-4 shadow-2xl"
+          className={`absolute -bottom-4 xl:-bottom-6 left-4 xl:left-6 right-4 xl:right-6 bg-[#1a1a1a]/95 backdrop-blur-xl border border-gray-700/50 rounded-lg xl:rounded-xl p-3 xl:p-4 shadow-2xl transition-opacity duration-500 ${
+            imageLoaded ? "opacity-100" : "opacity-0"
+          }`}
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 xl:gap-3">
